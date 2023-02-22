@@ -22,3 +22,7 @@ class Account
        @current_bal -= amount
        create_transaction(amount, 'credit')
      end
+
+     def statement(statement_class = Statement)
+          statement_class.print(@transactions.reverse)
+        end
