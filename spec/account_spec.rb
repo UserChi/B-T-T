@@ -1,6 +1,6 @@
 require 'account'
 
-Rspec.describe Account do
+RSpec.describe Account do
     let(:account) {Account.new}
     # let asks the database once and saves the account object locally
     before do 
@@ -8,7 +8,7 @@ Rspec.describe Account do
         @time_now = Time.now.strftime(%d/%m/%y)
         # time format according to the what i put in the given format string.
     end
-
+  end
 describe'Balance' do
     it 'has a default balance of 0' do
         expect(account.current_bal).to eq(0)

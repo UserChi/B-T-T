@@ -1,3 +1,5 @@
+require Statement
+require Transaction
 require 'date'
 
 class Account
