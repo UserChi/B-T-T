@@ -34,3 +34,30 @@ describe 'Deposit' do
       expect { account.withdraw(200) }.to raise_error 'Your withdrawal exceeds your current balance.'
     end
   end
+
+  describe 'Printing the statement' do
+
+    it 'grabs previous deposit and prints out the bank statement incl. date, transaction and current balance.' do 
+    account.deposit(1000)
+    statement = <<~STATEMENT
+    date || credit || debit || balance
+    #{@time_now} || 1000.00 || || 1000.00
+    
+    STATEMENT
+    
+    expect { account.statement }.to output(statement).to_stdout
+    end
+
+    it 'grabs previous transactions and prints out the bank statement incl. date, transaction and current balance.' do
+        account.deposit(1000)
+        account.withdraw(500)
+        allow(Time).to receive(:now).and_return(@time_now)
+        statement = <<~STATEMENT
+        date || credit || debit || balance
+        #{@time_now} || || 500.00 || 500.00
+        #{@time_now} || 1000.00 || || 1000.00
+        STATEMENT
+        expect { account.statement }.to output(statement).to_stdout
+      end
+    end    
+  end
