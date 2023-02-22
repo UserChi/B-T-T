@@ -29,7 +29,7 @@ class Account
 
     def create_transaction(amount, type=nil, transaction_class = Transaction)
 
-         @transactions << transaction_class.create(amount, @current_balance, type)   
+         @transactions << transaction_class.create(amount, @current_bal, type)   
         end
             
          private :create_transaction   
