@@ -12,7 +12,7 @@ class Statement
   end
 
   def self.is_credit?(transaction)
-    true if transaction.type
+    transaction.type == 'credit'
   end
 end
 
