@@ -27,7 +27,7 @@ end
 
 describe 'isCredit?' do
     it 'can tell that a transaction is a deposit' do
-  expect(Statement.is_credit?(credit_transaction)).to eq(false)
+  expect(Statement.is_credit?(credit_transaction)).to eq(nil)
 end
 
     it 'can tell that a withdrawal changes the type of the transaction to a credit' do

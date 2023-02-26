@@ -1,5 +1,5 @@
-require Statement
-require Transaction
+require 'statement'
+require 'transaction'
 require 'date'
 
 class Account

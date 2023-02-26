@@ -1,4 +1,5 @@
 require 'account'
+require 'statement'
 
 RSpec.describe Account do
     let(:account) {Account.new}
@@ -9,18 +10,39 @@ RSpec.describe Account do
         # time format according to the what i put in the given format string.
     end
   end
-describe'Balance' do
-    it 'has a default balance of 0' do
-        expect(account.current_bal).to eq(0)
-    end
-end
 
-describe 'Deposit' do
-    it 'adds 100 to the balance' do
-      account.deposit(100)
-      expect(account.current_bal).to eq(100)
+RSpec.describe Account do
+    describe "has a default balance of 0" do
+      it "returns 0 as the current balance" do
+        account = Account.new
+        expect(account.current_bal).to eq(0)
+      end
     end
   end
+
+  RSpec.describe Account do
+    describe "#deposit" do
+      it "adds 100 to the balance" do
+        account = Account.new
+        account.deposit(100)
+        expect(account.current_bal).to eq(100)
+      end
+    end
+  end
+  
+  
+# describe'Balance' do
+#     it 'has a default balance of 0' do
+#         expect(account.current_bal).to eq(0)
+#     end
+# end
+
+# describe 'Deposit' do
+#     it 'adds 100 to the balance' do
+#       account.deposit(100)
+#       expect(account.current_bal).to eq(100)
+#     end
+#   end
 
   describe 'Withdraw' do
     it 'adds 100 then subtracts 50 from the balance' do
