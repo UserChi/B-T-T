@@ -6,7 +6,7 @@ class Account
     attr_reader :current_bal
     #only read the value can't change it
 
-    def initalize 
+    def initialize 
         @current_bal = 0
         @transactions = []
     end

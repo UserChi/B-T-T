@@ -5,7 +5,7 @@ RSpec.describe Account do
     # let asks the database once and saves the account object locally
     before do 
         # before aks the database before each spec
-        @time_now = Time.now.strftime(%d/%m/%y)
+        @time_now = Time.now.strftime('%d/%m/%y')
         # time format according to the what i put in the given format string.
     end
   end
@@ -46,7 +46,7 @@ describe 'Deposit' do
     STATEMENT
     
     expect { account.statement }.to output(statement).to_stdout
-    end
+    # end
 
     it 'grabs previous transactions and prints out the bank statement incl. date, transaction and current balance.' do
         account.deposit(1000)
